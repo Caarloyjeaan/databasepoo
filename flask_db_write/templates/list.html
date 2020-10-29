@@ -1,0 +1,51 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+
+{% block title %}
+Sock Style List
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row pb-5">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">Lista de Registros</h1>
+
+      <p class="lead alert alert-warning">This is a list of all the socks of the
+			<strong>{{ style }}</strong> style in our inventory.</p>
+
+	  <p class="ml-4"><a href="{{ url_for('index') }}">Regresar al inicio.</a></p>
+
+		<table class="table">
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Email</th>
+				
+			</tr>
+
+			<!-- here is a for-loop to give us all the socks -->
+			{% for sock in socks %}
+			<tr>
+				<td>{{ sock.nombre }}</td>
+				<td>{{ sock.apellido}}</td>
+				<td>${{ sock.email }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

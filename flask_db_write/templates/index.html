@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+{% block title %}
+Base de datos
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-lg-auto mx-md-auto">
+
+      <h1 class="pt-5 pb-2">Bienvenido!</h1>
+
+      <p class="lead">
+        Esta es la página de índice de una aplicación Flask de ejemplo que utiliza una base de datos SQL que contiene datos personales de diferentes personas.</p>
+
+
+	  <!-- links -->
+	  <p>Tu puedes <a href="{{ url_for('add_record') }}">Enviar un nuevo registro</a>.</p>
+	  <p>Tu puedes <a href="{{ url_for( 'select_record', letters='AF' ) }}">Seleccionar registro para editar o eliminar</a>.</p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
