@@ -9,7 +9,7 @@
 
 
 {% block title %}
-Selected Sock: {{ the_sock.name }}
+Seleccionar registro: {{ the_sock.nombre }}
 {% endblock %}
 
 
@@ -25,12 +25,12 @@ Selected Sock: {{ the_sock.name }}
 	  <h1 class="mt-5 display-3 text-primary">{{ the_sock.nombre }}</h1>
 
 		<ul class="mt-5 mb-5">
-			<li class="lead"><span class="font-weight-bold">Style:</span> {{ the_sock.nombre }}</li>
-			<li class="lead"><span class="font-weight-bold">Color:</span> {{ the_sock.apellido }}</li>
-			<li class="lead"><span class="font-weight-bold">Quantity:</span> {{ the_sock.email }}</li>
+			<li class="lead"><span class="font-weight-bold">Nombre:</span> {{ the_sock.nombre }}</li>
+			<li class="lead"><span class="font-weight-bold">Apellido:</span> {{ the_sock.apellido }}</li>
+			<li class="lead"><span class="font-weight-bold">Email:</span> {{ the_sock.email }}</li>
 		</ul>
 
-      <p><a href="{{ url_for('index') }}">Return to search page</a></p>
+      <p><a href="{{ url_for('index') }}">Volver a la pagina de busqueda</a></p>
 
 <!-- notice how the URL in the link above is rendered for Flask - it needs to
      name the FUNCTION, not the route - and NOT the template!

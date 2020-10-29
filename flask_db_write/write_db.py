@@ -82,7 +82,7 @@ def stringdate():
 @app.route('/')
 def index():
     # get a list of unique values in the style column
-    styles = Sock.query.with_entities(Sock.id).distinct()
+    styles = Sock.query.with_entities(Sock.nombre).distinct()
     return render_template('index.html', styles=styles)
 
 @app.route('/inventory/<style>')
@@ -149,7 +149,7 @@ def delete_result():
     if purpose == 'delete':
         db.session.delete(sock)
         db.session.commit()
-        message = f"The sock {sock.nombre} has been deleted from the database."
+        message = f"El registro {sock.nombre} ha sido eliminado de la base de datos."
         return render_template('result.html', message=message)
     else:
         # this calls an error handler
@@ -173,7 +173,7 @@ def edit_result():
         # update database record
         db.session.commit()
         # create a message to send to the template
-        message = f"The data for sock {sock.nombre} has been updated."
+        message = f"Los datos de {sock.nombre} se han actualizado."
         return render_template('result.html', message=message)
     else:
         # show validaton errors

@@ -34,14 +34,14 @@ class Sock(db.Model):
 @app.route('/')
 def index():
     # get a list of unique values in the style column
-    styles = Sock.query.with_entities(Sock.style).distinct()
+    styles = Sock.query.with_entities(Sock.nombre).distinct()
     return render_template('index.html', styles=styles)
 
 
 @app.route('/inventory/<style>')
 def inventory(style):
     try:
-        socks = Sock.query.filter_by(style=style).order_by(Sock.nombre).all()
+        socks = Sock.query.filter_by().order_by(Sock.nombre).all()
         return render_template('list.html', socks=socks, style=style)
     except Exception as e:
         # e holds description of the error
